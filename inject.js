@@ -26,11 +26,14 @@ const deleteComments = comments => {
                 count++;
             }
         }
-        console.info(`[BilibiliNoAt] Comments updated, removed ${count} meaningless comments.`)
-    }, 100)});
+        console.info(`[BilibiliNoAt] Comments updated, removed ${count} meaningless comments.`);
+    }, 200)});
     ticker.observe(comments, { childList: true, subtree: true });
     comments.appendChild(document.createElement('div'));
+    return ticker;
 };
+
+let currentTicker;
 
 const trigger = new MutationObserver(() => {
     const commentWrapperHost = document.querySelector('bili-comments');
@@ -43,7 +46,15 @@ const trigger = new MutationObserver(() => {
         return;
     }
     trigger.disconnect();
-    deleteComments(comments);
+    if(currentTicker){
+        currentTicker.disconnect();
+    }
+    currentTicker = deleteComments(comments);
 });
 
-trigger.observe(document.body, { childList: true, subtree: true });
+const pageChangeDetector = new MutationObserver(() => {
+    console.log('[BilibiliNoAt] Page Change Detected.');
+    trigger.observe(document.body, { childList: true, subtree: true });
+});
+
+pageChangeDetector.observe(document.querySelector('title'), { childList: true });

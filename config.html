@@ -1,4 +1,49 @@
 <!DOCTYPE html>
+<head>
+    <style>
+        body {
+            width: 200px;
+        }
+        .title {
+            font-size: 1rem;
+        }
+        .switch {
+            appearance: none;
+            width: 30px;
+            height: 15px;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 10px;
+            border-color: gray;
+            transform: translateY(5px);
+            transition: background-color 0.1 ease;
+        }
+        .switch:checked {
+            background-color: #4693E0;
+        }
+        .switch:disabled {
+            background-color: lightgrey;
+        }
+        .switch::before {   
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background-color: gray;
+            transition: left 0.2s ease, background-color 0.2s ease;
+        }
+        .switch:checked::before {
+            left: 16px;
+            background-color: white;
+        }
+    </style>
+    <script src="config.js"></script>
+</head>
 <body>
-    <span>Extension Config Popup</span>
+    <span class="title">BilibiliNoAt配置菜单</span><br/>
+    <span class="label">输出日志：</span>
+    <input id="enablelog" type="checkbox" class="switch"/>
 </body>

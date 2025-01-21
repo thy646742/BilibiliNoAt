@@ -8,6 +8,9 @@
         "default_title": "BilibiliNoAt",
         "default_popup": "config.html"
     },
+    "permissions": [
+        "storage"
+    ],
     "content_scripts": [
         {
             "js": [

@@ -1,3 +1,11 @@
+const writeLog = content => {
+    chrome.storage.sync.get({ 'enablelog': false }, result => {
+        if(result.enablelog){
+            console.info('[BilibiliNoAt]', content);
+        }
+    });
+}
+
 console.info('[BilibiliNoAt] Injected Successfully');
 
 const checkComment = comment => {
@@ -26,7 +34,7 @@ const deleteComments = comments => {
                 count++;
             }
         }
-        console.info(`[BilibiliNoAt] Comments updated, removed ${count} meaningless comments.`);
+        writeLog(`Comments updated, removed ${count} meaningless comments.`);
     }, 200)});
     ticker.observe(comments, { childList: true, subtree: true });
     comments.appendChild(document.createElement('div'));
@@ -53,7 +61,7 @@ const trigger = new MutationObserver(() => {
 });
 
 const pageChangeDetector = new MutationObserver(() => {
-    console.log('[BilibiliNoAt] Page Change Detected.');
+    writeLog('Page Change Detected.');
     trigger.observe(document.body, { childList: true, subtree: true });
 });
 

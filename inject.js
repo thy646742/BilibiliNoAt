@@ -19,9 +19,13 @@ const checkComment = comment => {
     const textComponents = commentText.children;
     const len = textComponents.length;
     for(let i = 0; i < len; i++){
-        if(textComponents[i].tagName == 'SPAN' && textComponents[i].innerHTML != ' '){
-            return false;
+        if(textComponents[i].tagName == 'A' && textComponents[i].dataset.type == 'mention'){
+            continue;
         }
+        if(textComponents[i].innerHTML == ' '){
+            continue;
+        }
+        return false;
     }
     return true;
 };

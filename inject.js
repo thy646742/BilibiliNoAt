@@ -4,7 +4,7 @@ const writeLog = content => {
             console.info('[BilibiliNoAt]', content);
         }
     });
-}
+};
 
 console.info('[BilibiliNoAt] Injected Successfully');
 
@@ -31,7 +31,7 @@ const checkComment = comment => {
 };
 
 const deleteComments = comments => {
-    const ticker = new MutationObserver(()=>{setTimeout(() => {
+    const ticker = new MutationObserver(() => {setTimeout(() => {
         const commentList = comments.querySelectorAll('bili-comment-thread-renderer');
         const len = commentList.length;
         let count = 0;
@@ -68,7 +68,7 @@ const trigger = new MutationObserver(() => {
 });
 
 const pageChangeDetector = new MutationObserver(() => {
-    writeLog('Page Change Detected.');
+    writeLog('Page change detected.');
     trigger.observe(document.body, { childList: true, subtree: true });
 });
 

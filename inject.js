@@ -9,6 +9,9 @@ const writeLog = content => {
 console.info('[BilibiliNoAt] Injected Successfully');
 
 const checkComment = comment => {
+    if(comment.style.display == 'none'){
+        return false;
+    }
     const commentText = comment.shadowRoot
       .querySelector('bili-comment-renderer').shadowRoot
       .querySelector('#body #main #content bili-rich-text').shadowRoot

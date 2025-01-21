@@ -4,6 +4,10 @@
     "author": "thy646742",
     "version": "0.0.0",
     "description": "隐藏Bilibili评论区@人和@一堆人的评论",
+    "icons": {
+        "128": "icons/icon128.png",
+        "48": "icons/icon48.png"
+    },
     "action": {
         "default_title": "BilibiliNoAt",
         "default_popup": "config.html"

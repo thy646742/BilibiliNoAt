@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "BilibiliNoAt",
     "author": "thy646742",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "隐藏Bilibili评论区@人和@一堆人的评论",
     "icons": {
         "128": "icons/icon128.png",

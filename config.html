@@ -3,6 +3,18 @@
     <style>
         body {
             width: 200px;
+            display: flex;
+            flex-direction: column ;
+            align-items: flex-start;
+            justify-content: flex-start;
+            background-color: #fff8fd;
+        }
+        .wrapper {
+            margin-bottom: 6px;
+        }
+        .config {
+            margin-top: 3px;
+            margin-bottom: 3px;
         }
         .title {
             font-size: 1rem;
@@ -15,8 +27,9 @@
             border-width: 1px;
             border-radius: 10px;
             border-color: gray;
-            transform: translateY(5px);
+            transform: translateY(3px);
             transition: background-color 0.1 ease;
+            margin: 0;
         }
         .switch:checked {
             background-color: #4693E0;
@@ -43,10 +56,27 @@
     <script src="config.js"></script>
 </head>
 <body>
-    <span class="title">BilibiliNoAt配置菜单</span><br/>
-    <span class="label">启用插件：</span>
-    <input id="enableplugin" type="checkbox" class="switch"/>
-    <span class="label">（需刷新Bilibili）</span><br/>
-    <span class="label">输出日志：</span>
-    <input id="enablelog" type="checkbox" class="switch"/>
+    <div class="wrapper">
+        <span class="title">BilibiliNoAt 配置菜单</span><br/>
+    </div>
+    <div class="wrapper">
+        <div class="config">
+            <span>启用插件&nbsp;</span>
+            <input id="enableplugin" type="checkbox" class="switch"/>
+            <span for="enableplugin">（需刷新Bilibili）</span>
+        </div>
+        <div class="config">
+        <span>输出日志&nbsp;</span>
+        <input id="enablelog" type="checkbox" class="switch"/>
+        </div>
+    </div>
+    <div class="wrapper">
+        <span>作者：thy646742</span><br/>
+        <span>
+            Github：
+            <a href="https://github.com/thy646742/BilibiliNoAt" target="_blank">
+                BilibiliNoAt
+            </a>
+        </span>
+    </div>
 </body>

@@ -72,4 +72,12 @@ const pageChangeDetector = new MutationObserver(() => {
     trigger.observe(document.body, { childList: true, subtree: true });
 });
 
-pageChangeDetector.observe(document.querySelector('title'), { childList: true });
+chrome.storage.sync.get({ 'enableplugin': true }, result => {
+    if(result.enableplugin){
+        writeLog('Plugin enabled.');
+        pageChangeDetector.observe(document.querySelector('title'), { childList: true });
+    }
+    else{
+        writeLog('Plugin disabled');
+    }
+});
